@@ -1,0 +1,33 @@
+application:
+  version: '@project.version@'
+
+notifyr:
+
+  # Netty configuration for TCP-Server
+  tcp-server:
+    ip: "127.0.0.1"
+    port: 2125
+    request-time-out: 5000
+    response-time-out: 2000
+
+  # Jaxb contex configuration classes.
+  jaxb:
+    classes:
+      - com.interblocks.iwallet.notifyr.core.dispatchers.models.DefaultMessage
+
+  # Notifyr Dispatchers.
+  dispatchers:
+    email:
+      enabled: true
+      max-queue-capacity: 10
+      endpoint:
+        url:
+        username:
+        password:
+    sms:
+      enabled: true
+      max-queue-capacity: 10
+
+spring:
+  profiles:
+    active: standalone
